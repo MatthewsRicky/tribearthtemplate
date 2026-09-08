@@ -69,7 +69,15 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
-    'test-content': TestContent;
+    'product-categories': ProductCategory;
+    products: Product;
+    collections: Collection;
+    events: Event;
+    'menu-categories': MenuCategory;
+    'team-members': TeamMember;
+    stories: Story;
+    'menu-items': MenuItem;
+    'impact-initiatives': ImpactInitiative;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -79,7 +87,15 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
-    'test-content': TestContentSelect<false> | TestContentSelect<true>;
+    'product-categories': ProductCategoriesSelect<false> | ProductCategoriesSelect<true>;
+    products: ProductsSelect<false> | ProductsSelect<true>;
+    collections: CollectionsSelect<false> | CollectionsSelect<true>;
+    events: EventsSelect<false> | EventsSelect<true>;
+    'menu-categories': MenuCategoriesSelect<false> | MenuCategoriesSelect<true>;
+    'team-members': TeamMembersSelect<false> | TeamMembersSelect<true>;
+    stories: StoriesSelect<false> | StoriesSelect<true>;
+    'menu-items': MenuItemsSelect<false> | MenuItemsSelect<true>;
+    'impact-initiatives': ImpactInitiativesSelect<false> | ImpactInitiativesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -165,12 +181,167 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "test-content".
+ * via the `definition` "product-categories".
  */
-export interface TestContent {
+export interface ProductCategory {
+  id: number;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products".
+ */
+export interface Product {
+  id: number;
+  name: string;
+  slug: string;
+  description?: string | null;
+  designNumber?: string | null;
+  category: number | ProductCategory;
+  collection?: (number | null) | Collection;
+  price: number;
+  currency?: ('USD' | 'KES') | null;
+  materials?: string | null;
+  stone?: string | null;
+  dimensions?: string | null;
+  weight?: string | null;
+  variants?:
+    | {
+        name: string;
+        value: string;
+        available?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  images?: (number | Media)[] | null;
+  featured?: boolean | null;
+  status?: ('draft' | 'active' | 'archived') | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "collections".
+ */
+export interface Collection {
+  id: number;
+  name: string;
+  description?: string | null;
+  image?: (number | null) | Media;
+  featured?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events".
+ */
+export interface Event {
   id: number;
   title: string;
+  slug: string;
   description?: string | null;
+  image?: (number | null) | Media;
+  startDate: string;
+  endDate?: string | null;
+  location?: string | null;
+  artist?: string | null;
+  category?: ('art' | 'music' | 'wellness' | 'workshop' | 'community' | 'other') | null;
+  bookingUrl?: string | null;
+  status?: ('upcoming' | 'completed' | 'cancelled') | null;
+  featured?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "menu-categories".
+ */
+export interface MenuCategory {
+  id: number;
+  name: string;
+  description?: string | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "team-members".
+ */
+export interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  bio?: string | null;
+  image?: (number | null) | Media;
+  featured?: boolean | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "stories".
+ */
+export interface Story {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt?: string | null;
+  content: string;
+  coverImage?: (number | null) | Media;
+  author?: (number | null) | TeamMember;
+  category?: ('journal' | 'impact' | 'jewellery' | 'art-culture' | 'wellness' | 'cafe') | null;
+  status?: ('draft' | 'published' | 'archived') | null;
+  featured?: boolean | null;
+  publishedAt?: string | null;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "menu-items".
+ */
+export interface MenuItem {
+  id: number;
+  name: string;
+  description?: string | null;
+  category: number | MenuCategory;
+  price?: number | null;
+  currency?: ('KES' | 'USD') | null;
+  image?: (number | null) | Media;
+  dietaryTags?: ('vegan' | 'gluten-free' | 'spicy')[] | null;
+  available?: boolean | null;
+  featured?: boolean | null;
+  order?: number | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "impact-initiatives".
+ */
+export interface ImpactInitiative {
+  id: number;
+  title: string;
+  slug: string;
+  category: 'people' | 'supply-chain' | 'environment' | 'community';
+  summary?: string | null;
+  content: string;
+  image?: (number | null) | Media;
+  metrics?:
+    | {
+        label: string;
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  featured?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -207,8 +378,40 @@ export interface PayloadLockedDocument {
         value: number | Media;
       } | null)
     | ({
-        relationTo: 'test-content';
-        value: number | TestContent;
+        relationTo: 'product-categories';
+        value: number | ProductCategory;
+      } | null)
+    | ({
+        relationTo: 'products';
+        value: number | Product;
+      } | null)
+    | ({
+        relationTo: 'collections';
+        value: number | Collection;
+      } | null)
+    | ({
+        relationTo: 'events';
+        value: number | Event;
+      } | null)
+    | ({
+        relationTo: 'menu-categories';
+        value: number | MenuCategory;
+      } | null)
+    | ({
+        relationTo: 'team-members';
+        value: number | TeamMember;
+      } | null)
+    | ({
+        relationTo: 'stories';
+        value: number | Story;
+      } | null)
+    | ({
+        relationTo: 'menu-items';
+        value: number | MenuItem;
+      } | null)
+    | ({
+        relationTo: 'impact-initiatives';
+        value: number | ImpactInitiative;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -294,11 +497,158 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "test-content_select".
+ * via the `definition` "product-categories_select".
  */
-export interface TestContentSelect<T extends boolean = true> {
-  title?: T;
+export interface ProductCategoriesSelect<T extends boolean = true> {
+  name?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products_select".
+ */
+export interface ProductsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
   description?: T;
+  designNumber?: T;
+  category?: T;
+  collection?: T;
+  price?: T;
+  currency?: T;
+  materials?: T;
+  stone?: T;
+  dimensions?: T;
+  weight?: T;
+  variants?:
+    | T
+    | {
+        name?: T;
+        value?: T;
+        available?: T;
+        id?: T;
+      };
+  images?: T;
+  featured?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "collections_select".
+ */
+export interface CollectionsSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  image?: T;
+  featured?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events_select".
+ */
+export interface EventsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  description?: T;
+  image?: T;
+  startDate?: T;
+  endDate?: T;
+  location?: T;
+  artist?: T;
+  category?: T;
+  bookingUrl?: T;
+  status?: T;
+  featured?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "menu-categories_select".
+ */
+export interface MenuCategoriesSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "team-members_select".
+ */
+export interface TeamMembersSelect<T extends boolean = true> {
+  name?: T;
+  role?: T;
+  bio?: T;
+  image?: T;
+  featured?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "stories_select".
+ */
+export interface StoriesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  excerpt?: T;
+  content?: T;
+  coverImage?: T;
+  author?: T;
+  category?: T;
+  status?: T;
+  featured?: T;
+  publishedAt?: T;
+  seoTitle?: T;
+  seoDescription?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "menu-items_select".
+ */
+export interface MenuItemsSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  category?: T;
+  price?: T;
+  currency?: T;
+  image?: T;
+  dietaryTags?: T;
+  available?: T;
+  featured?: T;
+  order?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "impact-initiatives_select".
+ */
+export interface ImpactInitiativesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  category?: T;
+  summary?: T;
+  content?: T;
+  image?: T;
+  metrics?:
+    | T
+    | {
+        label?: T;
+        value?: T;
+        id?: T;
+      };
+  featured?: T;
   updatedAt?: T;
   createdAt?: T;
 }
