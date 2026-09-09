@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 
-import { getPayloadClient } from '@/lib/payload'
 import { RenderBlocks } from '@/components/RenderBlocks'
+import { getPayloadClient } from '@/lib/payload'
 
 type PageProps = {
   params: Promise<{

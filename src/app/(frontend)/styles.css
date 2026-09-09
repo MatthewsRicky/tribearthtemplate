@@ -1,278 +1,43 @@
-@import "tailwindcss";
-
-/* =========================================================
-   TRIBEARTH DESIGN SYSTEM
-   Green + Gold / Natural / Editorial / Conscious
-   ========================================================= */
+@import 'tailwindcss';
 
 @theme {
-  /* Brand */
   --color-tribearth-green: #3f6b57;
+  --color-tribearth-green-light: #5d7f6d;
   --color-tribearth-green-deep: #254536;
-  --color-tribearth-green-dark: #18352a;
-
   --color-tribearth-gold: #c7a75b;
   --color-tribearth-gold-light: #dfc982;
-  --color-tribearth-gold-pale: #eee5c8;
 
-  /* Supporting greens */
   --color-tribearth-sage: #8a9d88;
-  --color-tribearth-olive: #697b63;
-  --color-tribearth-moss: #536b4f;
-
-  /* Neutrals */
   --color-tribearth-cream: #f5f1e5;
   --color-tribearth-offwhite: #faf9f4;
-  --color-tribearth-warm-white: #fffdf8;
 
   --color-tribearth-charcoal: #252824;
   --color-tribearth-muted: #6d7169;
   --color-tribearth-border: #ddd9ca;
 }
 
-/* =========================================================
-   ROOT VARIABLES
-   ========================================================= */
-
 :root {
-  --background: var(--color-tribearth-cream);
-  --foreground: var(--color-tribearth-charcoal);
-
-  --surface: var(--color-tribearth-offwhite);
-  --surface-white: var(--color-tribearth-warm-white);
-  --surface-green: var(--color-tribearth-green);
-  --surface-green-deep: var(--color-tribearth-green-deep);
-
-  --brand-primary: var(--color-tribearth-green);
-  --brand-primary-deep: var(--color-tribearth-green-deep);
-  --brand-primary-dark: var(--color-tribearth-green-dark);
-
-  --brand-accent: var(--color-tribearth-gold);
-  --brand-accent-light: var(--color-tribearth-gold-light);
-  --brand-accent-pale: var(--color-tribearth-gold-pale);
-
-  --muted: var(--color-tribearth-muted);
-  --border: var(--color-tribearth-border);
-
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
+  --background: #f5f1e5;
+  --foreground: #252824;
 }
-
-/* =========================================================
-   BASE
-   ========================================================= */
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
   background: var(--background);
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-
   background: var(--background);
   color: var(--foreground);
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
-  color: inherit;
+  /* color: inherit; */
   text-decoration: none;
-}
-
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* =========================================================
-   SELECTION
-   ========================================================= */
-
-::selection {
-  background: var(--brand-primary);
-  color: var(--color-tribearth-cream);
-}
-
-/* =========================================================
-   SCROLLBAR
-   ========================================================= */
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-tribearth-cream);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-tribearth-green);
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-tribearth-green-deep);
-}
-
-/* =========================================================
-   TYPOGRAPHY HELPERS
-   ========================================================= */
-
-.text-balance {
-  text-wrap: balance;
-}
-
-.text-pretty {
-  text-wrap: pretty;
-}
-
-/* =========================================================
-   EDITORIAL EYEBROW
-   ========================================================= */
-
-.tribearth-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-
-  color: var(--brand-accent);
-
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-}
-
-.tribearth-eyebrow::before {
-  content: "";
-
-  width: 2rem;
-  height: 1px;
-
-  background: currentColor;
-}
-
-/* =========================================================
-   CONTAINER
-   ========================================================= */
-
-.tribearth-container {
-  width: min(100% - 2rem, 1280px);
-  margin-inline: auto;
-}
-
-@media (min-width: 768px) {
-  .tribearth-container {
-    width: min(100% - 4rem, 1280px);
-  }
-}
-
-/* =========================================================
-   SECTION SPACING
-   ========================================================= */
-
-.tribearth-section {
-  padding-block: 5rem;
-}
-
-@media (min-width: 768px) {
-  .tribearth-section {
-    padding-block: 7rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .tribearth-section {
-    padding-block: 9rem;
-  }
-}
-
-/* =========================================================
-   FOCUS
-   ========================================================= */
-
-:focus-visible {
-  outline: 2px solid var(--brand-accent);
-  outline-offset: 4px;
-}
-
-/* =========================================================
-   PROSE
-   ========================================================= */
-
-.tribearth-prose {
-  color: var(--color-tribearth-charcoal);
-  line-height: 1.8;
-}
-
-.tribearth-prose h1,
-.tribearth-prose h2,
-.tribearth-prose h3,
-.tribearth-prose h4 {
-  color: var(--color-tribearth-green-deep);
-  line-height: 1.15;
-}
-
-.tribearth-prose p {
-  margin-block: 1rem;
-}
-
-.tribearth-prose a {
-  color: var(--color-tribearth-green);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.tribearth-prose ul,
-.tribearth-prose ol {
-  padding-left: 1.5rem;
-}
-
-.tribearth-prose li {
-  margin-block: 0.5rem;
-}
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }
