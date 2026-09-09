@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 type ProductCardProps = {
   product: {
-    id: string
+    id: string | number
     name: string
     slug: string
     price: number
