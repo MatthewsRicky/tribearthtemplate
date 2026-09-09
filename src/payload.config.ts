@@ -16,6 +16,7 @@ import { TeamMembers } from './collections/TeamMembers'
 import { Stories } from './collections/Stories'
 import { MenuItems } from './collections/MenuItems'
 import { ImpactInitiatives } from './collections/ImpactInitiatives'
+import { Pages } from './collections/Pages'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -27,7 +28,20 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, ProductCategories, Products, Collections, Events, MenuCategories, TeamMembers, Stories, MenuItems, ImpactInitiatives],
+  collections: [
+    Users,
+    Media,
+    ProductCategories,
+    Products,
+    Collections,
+    Events,
+    MenuCategories,
+    TeamMembers,
+    Stories,
+    MenuItems,
+    ImpactInitiatives,
+    Pages,
+  ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
