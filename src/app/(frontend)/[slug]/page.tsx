@@ -1,35 +1,21 @@
 import { notFound } from 'next/navigation'
-
 import { RenderBlocks } from '@/components/RenderBlocks'
 import { getPayloadClient } from '@/lib/payload'
 
 type PageProps = {
-  params: Promise<{
-    slug: string
-  }>
+  params: Promise<{ slug: string }>
 }
 
 export default async function DynamicPage({ params }: PageProps) {
   const { slug } = await params
-
   const payload = await getPayloadClient()
 
   const result = await payload.find({
     collection: 'pages',
     where: {
-      and: [
-        {
-          slug: {
-            equals: slug,
-          },
-        },
-        {
-          status: {
-            equals: 'published',
-          },
-        },
-      ],
+      and: [{ slug: { equals: slug } }, { status: { equals: 'published' } }],
     },
+    depth: 2,
     limit: 1,
   })
 

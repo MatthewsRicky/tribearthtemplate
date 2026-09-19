@@ -1,22 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import type { Product } from '@/payload-types'
 
 type ProductCardProps = {
-  product: {
-    id: string | number
-    name: string
-    slug: string
-    price: number
-    currency?: string | null
-    images?: Array<{
-      url?: string | null
-      alt?: string | null
-    }> | null
-  }
+  product: Product
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const image = product.images?.[0]
+  const image = typeof product.images?.[0] === 'object' ? product.images[0] : null
 
   return (
     <Link href={`/jewellery/${product.slug}`} className="group block">

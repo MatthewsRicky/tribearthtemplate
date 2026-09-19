@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation'
-
 import { RenderBlocks } from '@/components/RenderBlocks'
 import { getPayloadClient } from '@/lib/payload'
 
@@ -9,19 +8,9 @@ export default async function HomePage() {
   const result = await payload.find({
     collection: 'pages',
     where: {
-      and: [
-        {
-          slug: {
-            equals: 'home',
-          },
-        },
-        {
-          status: {
-            equals: 'published',
-          },
-        },
-      ],
+      and: [{ slug: { equals: 'home' } }, { status: { equals: 'published' } }],
     },
+    depth: 2,
     limit: 1,
   })
 

@@ -1,26 +1,21 @@
+import type { Story } from '@/payload-types'
 import Image from 'next/image'
 import Link from 'next/link'
 
 type StoryCardProps = {
-  story: {
-    title: string
-    slug: string
-    excerpt?: string | null
-    coverImage?: {
-      url?: string | null
-      alt?: string | null
-    } | null
-  }
+  story: Story
 }
 
 export default function StoryCard({ story }: StoryCardProps) {
+  const image = typeof story.coverImage === 'object' ? story.coverImage : null
+
   return (
     <Link href={`/journal/${story.slug}`} className="group block">
       <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
-        {story.coverImage?.url && (
+        {image?.url && (
           <Image
-            src={story.coverImage.url}
-            alt={story.coverImage.alt || story.title}
+            src={image.url}
+            alt={image.alt || story.title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, 33vw"
