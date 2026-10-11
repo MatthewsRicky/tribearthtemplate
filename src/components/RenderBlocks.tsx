@@ -11,6 +11,9 @@ import { ImpactStatsBlock } from '@/components/blocks/ImpactStatsBlock'
 import { EventsBlock } from '@/components/blocks/EventsBlock'
 import { MenuBlock } from '@/components/blocks/MenuBlock'
 import { CallToActionBlock } from '@/components/blocks/CallToActionBlock'
+import { ImpactPillarsBlock } from '@/components/blocks/ImpactPillarsBlock'
+import { ImpactParallaxBlock } from '@/components/blocks/ImpactParallaxBlock'
+import { ImpactInitiativesBlock } from '@/components/blocks/ImpactInitiativesBlock'
 
 type PageBlock = NonNullable<Page['layout']>[number]
 
@@ -51,6 +54,15 @@ export function RenderBlocks({ blocks }: { blocks?: PageBlock[] | null }) {
 
           case 'call-to-action':
             return <CallToActionBlock key={key} {...block} />
+
+          case 'impact-pillars':
+            return <ImpactPillarsBlock key={key} {...block} />
+
+          case 'impact-parallax':
+            return <ImpactParallaxBlock key={key} {...block} />
+
+          case 'impact-initiatives':
+            return <ImpactInitiativesBlock key={key} {...block} />
 
           default:
             return null
