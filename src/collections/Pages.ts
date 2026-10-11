@@ -9,6 +9,9 @@ import { ImpactStats } from '@/blocks/ImpactStats/config'
 import { Events } from '@/blocks/Events/config'
 import { Menu } from '@/blocks/Menu/config'
 import { CallToAction } from '@/blocks/CallToAction/config'
+import { ImpactPillars } from '@/blocks/ImpactPillars/config'
+import { ImpactParallax } from '@/blocks/ImpactParallax/config'
+import { ImpactInitiativesBlock } from '@/blocks/ImpactInitiatives/config'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -63,6 +66,9 @@ export const Pages: CollectionConfig = {
         Events,
         Menu,
         CallToAction,
+        ImpactPillars,
+        ImpactParallax,
+        ImpactInitiativesBlock,
       ],
     },
 
