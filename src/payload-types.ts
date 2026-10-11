@@ -482,6 +482,57 @@ export interface Page {
             blockName?: string | null;
             blockType: 'call-to-action';
           }
+        | {
+            eyebrow?: string | null;
+            heading: string;
+            description?: string | null;
+            background?: ('cream' | 'offwhite' | 'green') | null;
+            pillars?:
+              | {
+                  title: string;
+                  description: string;
+                  image?: (number | null) | Media;
+                  link?: string | null;
+                  linkLabel?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'impact-pillars';
+          }
+        | {
+            eyebrow?: string | null;
+            heading: string;
+            content?: string | null;
+            backgroundImage: number | Media;
+            /**
+             * Overlay opacity as a percentage, from 0 to 100.
+             */
+            overlayOpacity?: number | null;
+            alignment?: ('left' | 'center') | null;
+            height?: ('medium' | 'large') | null;
+            button?: {
+              label?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'impact-parallax';
+          }
+        | {
+            eyebrow?: string | null;
+            heading: string;
+            description?: string | null;
+            initiatives?: (number | ImpactInitiative)[] | null;
+            button?: {
+              label?: string | null;
+              url?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'impact-initiatives';
+          }
       )[]
     | null;
   seo?: {
@@ -959,6 +1010,61 @@ export interface PagesSelect<T extends boolean = true> {
                     url?: T;
                   };
               style?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'impact-pillars'?:
+          | T
+          | {
+              eyebrow?: T;
+              heading?: T;
+              description?: T;
+              background?: T;
+              pillars?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    image?: T;
+                    link?: T;
+                    linkLabel?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'impact-parallax'?:
+          | T
+          | {
+              eyebrow?: T;
+              heading?: T;
+              content?: T;
+              backgroundImage?: T;
+              overlayOpacity?: T;
+              alignment?: T;
+              height?: T;
+              button?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'impact-initiatives'?:
+          | T
+          | {
+              eyebrow?: T;
+              heading?: T;
+              description?: T;
+              initiatives?: T;
+              button?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
+                  };
               id?: T;
               blockName?: T;
             };
