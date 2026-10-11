@@ -1,10 +1,24 @@
-// impact/page.tsx
-export default function ImpactPage() {
-  return (
-    <section className="mx-auto max-w-7xl px-6 py-32 lg:px-8">
-      <p className="text-xs uppercase tracking-[0.3em] text-black/40">Impact</p>
+import { notFound } from 'next/navigation'
+import { getPayloadClient } from '@/lib/payload'
+import { RenderBlocks } from '@/components/RenderBlocks'
 
-      <h1 className="mt-5 text-5xl font-medium tracking-tight md:text-7xl">Impact</h1>
-    </section>
-  )
+export default async function ImpactPage() {
+  const payload = await getPayloadClient()
+
+  const result = await payload.find({
+    collection: 'pages',
+    where: {
+      and: [{ slug: { equals: 'impact' } }, { status: { equals: 'published' } }],
+    },
+    depth: 2,
+    limit: 1,
+  })
+
+  const page = result.docs[0]
+
+  if (!page) {
+    notFound()
+  }
+
+  return <RenderBlocks blocks={page.layout} />
 }
