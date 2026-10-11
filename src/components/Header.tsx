@@ -5,7 +5,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 const navigation = [
-  { label: 'Jewellery', href: '/jewellery' },
+  { label: 'Jewelry', href: '/jewelry' },
   { label: 'Café', href: '/cafe' },
   { label: 'Impact', href: '/impact' },
   { label: 'Art & Culture', href: '/art' },
