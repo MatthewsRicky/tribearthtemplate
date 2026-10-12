@@ -14,6 +14,14 @@ import { CallToActionBlock } from '@/components/blocks/CallToActionBlock'
 import { ImpactPillarsBlock } from '@/components/blocks/ImpactPillarsBlock'
 import { ImpactParallaxBlock } from '@/components/blocks/ImpactParallaxBlock'
 import { ImpactInitiativesBlock } from '@/components/blocks/ImpactInitiativesBlock'
+import { TextDisclosureBlock } from '@/components/blocks/TextDisclosureBlock'
+import { ContainerBlock } from '@/components/blocks/ContainerBlock'
+import { ResponsiveGridBlock } from '@/components/blocks/ResponsiveGridBlock'
+import { ResponsiveSplitBlock } from '@/components/blocks/ResponsiveSplitBlock'
+import { SingleImageBlock } from './blocks/SingleImageBlock'
+import { ImageTextBlock } from './blocks/ImageTextBlock'
+import { EmphasizedTextBlock } from './blocks/EmphasizedTextBlock'
+import { HeadingBlock } from './blocks/HeadingBlock'
 
 type PageBlock = NonNullable<Page['layout']>[number]
 
@@ -63,6 +71,30 @@ export function RenderBlocks({ blocks }: { blocks?: PageBlock[] | null }) {
 
           case 'impact-initiatives':
             return <ImpactInitiativesBlock key={key} {...block} />
+          
+          case 'text-disclosure':
+            return <TextDisclosureBlock key={key} {...block} />
+          
+          case 'container':
+            return <ContainerBlock key={key} {...block} />
+
+          case 'responsive-grid':
+            return <ResponsiveGridBlock key={key} {...block} />
+
+          case 'responsive-split':
+            return <ResponsiveSplitBlock key={key} {...block} />
+          
+          case 'image-text':
+            return <ImageTextBlock key={key} {...block} />
+          
+          case 'single-image':
+            return <SingleImageBlock key={key} {...block} />
+
+          case 'emphasized-text':
+            return <EmphasizedTextBlock key={key} {...block} />
+           
+          case 'heading':
+            return <HeadingBlock key={key} {...block} />  
 
           default:
             return null

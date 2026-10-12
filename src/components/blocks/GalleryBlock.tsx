@@ -37,8 +37,14 @@ export function GalleryBlock({
     featured: 'grid grid-cols-2 gap-4 md:grid-cols-4',
   }
 
+  const backgroundClasses = {
+    grid: 'bg-tribearth-offwhite text-tribearth-charcoal',
+    masonry: 'bg-tribearth-green-light text-tribearth-cream',
+    featured: 'bg-tribearth-cream text-tribearth-charcoal',
+  }
+
   return (
-    <section className="bg-tribearth-offwhite px-6 py-24 md:px-10">
+    <section className={backgroundClasses[layout || 'masonry'] + ' px-6 py-24 md:px-10'}>
       <div className="mx-auto max-w-7xl">
         {(eyebrow || heading || description) && (
           <div className="mb-12 max-w-2xl">
@@ -49,7 +55,7 @@ export function GalleryBlock({
             )}
 
             {heading && (
-              <h2 className="text-4xl font-medium tracking-tight text-tribearth-green-deep md:text-5xl">
+              <h2 className="text-4xl font-medium tracking-tight md:text-5xl">
                 {heading}
               </h2>
             )}
@@ -64,7 +70,7 @@ export function GalleryBlock({
           {media.map((image, index) => (
             <div
               key={image.id ?? index}
-              className={`relative mb-4 overflow-hidden ${
+              className={`relative mb-4 overflow-hidden rounded-md shadow-md ${
                 layout === 'masonry' ? 'break-inside-avoid' : ''
               } ${layout === 'featured' && index === 0 ? 'col-span-2 row-span-2' : ''}`}
             >

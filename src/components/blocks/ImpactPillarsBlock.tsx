@@ -29,6 +29,10 @@ export function ImpactPillarsBlock({
     offwhite: 'bg-tribearth-offwhite',
     green: 'bg-tribearth-green-deep text-white',
   }[background ?? 'cream']
+  const textColorClass = {
+    dark: 'text-tribearth-green-deep',
+    light: 'text-white',
+  }[background === 'green' ? 'light' : 'dark']
 
   const validPillars = (pillars ?? []).filter((pillar) => pillar.title && pillar.description)
 
@@ -38,12 +42,12 @@ export function ImpactPillarsBlock({
         <div className="mx-auto mb-12 max-w-3xl text-center">
           {eyebrow && <p className="tribearth-eyebrow mb-4">{eyebrow}</p>}
 
-          <h2 className="text-3xl leading-tight text-tribearth-green-deep md:text-5xl">
-            {heading}
-          </h2>
+          <h2 className={`text-3xl leading-tight ${textColorClass} md:text-5xl`}>{heading}</h2>
 
           {description && (
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-tribearth-muted md:text-lg">
+            <p
+              className={`mx-auto mt-5 max-w-2xl text-base leading-7 ${textColorClass} md:text-lg`}
+            >
               {description}
             </p>
           )}
