@@ -21,6 +21,15 @@ export const ImpactPillars: Block = {
       ],
     },
     {
+      name: 'textColor',
+      type: 'select',
+      defaultValue: 'dark',
+      options: [
+        { label: 'Dark', value: 'dark' },
+        { label: 'Light', value: 'light' },
+      ],
+    },
+    {
       name: 'pillars',
       type: 'array',
       minRows: 1,
