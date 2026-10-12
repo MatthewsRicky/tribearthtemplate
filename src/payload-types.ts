@@ -487,6 +487,7 @@ export interface Page {
             heading: string;
             description?: string | null;
             background?: ('cream' | 'offwhite' | 'green') | null;
+            textColor?: ('dark' | 'light') | null;
             pillars?:
               | {
                   title: string;
@@ -532,6 +533,1452 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'impact-initiatives';
+          }
+        | {
+            eyebrow?: string | null;
+            heading?: string | null;
+            intro?: string | null;
+            displayMode: 'always' | 'accordion';
+            /**
+             * When disabled, opening one item closes the others.
+             */
+            allowMultipleOpen?: boolean | null;
+            items?:
+              | {
+                  title: string;
+                  description: string;
+                  id?: string | null;
+                }[]
+              | null;
+            backgroundColor?:
+              | ('green' | 'deep-green' | 'gold' | 'light-gold' | 'sage' | 'cream' | 'offwhite' | 'charcoal' | 'white')
+              | null;
+            headingColor?:
+              | ('green' | 'deep-green' | 'gold' | 'light-gold' | 'sage' | 'cream' | 'offwhite' | 'charcoal' | 'white')
+              | null;
+            textColor?:
+              | ('green' | 'deep-green' | 'gold' | 'light-gold' | 'sage' | 'cream' | 'offwhite' | 'charcoal' | 'white')
+              | null;
+            accentColor?:
+              | ('green' | 'deep-green' | 'gold' | 'light-gold' | 'sage' | 'cream' | 'offwhite' | 'charcoal' | 'white')
+              | null;
+            alignment?: ('left' | 'center') | null;
+            contentWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+            corners?: ('square' | 'small' | 'medium' | 'large') | null;
+            shadow?: boolean | null;
+            entranceAnimation?: ('none' | 'fade-in' | 'fade-up') | null;
+            hoverEffect?: ('none' | 'lift' | 'accent-border') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'text-disclosure';
+          }
+        | {
+            eyebrow?: string | null;
+            heading?: string | null;
+            blocks?:
+              | (
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      subheading?: string | null;
+                      backgroundImage?: (number | null) | Media;
+                      primaryButton?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      secondaryButton?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      alignment?: ('left' | 'center' | 'right') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'hero';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      content: string;
+                      image?: (number | null) | Media;
+                      imagePosition?: ('left' | 'right') | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'split-content';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading?: string | null;
+                      description?: string | null;
+                      images?: (number | Media)[] | null;
+                      layout?: ('grid' | 'masonry' | 'featured') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'gallery';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      products?: (number | Product)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'product-showcase';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      stories?: (number | Story)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'story-showcase';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      stats?:
+                        | {
+                            value: string;
+                            label: string;
+                            description?: string | null;
+                            id?: string | null;
+                          }[]
+                        | null;
+                      initiatives?: (number | ImpactInitiative)[] | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'impact-stats';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      events?: (number | Event)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'events';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      items?: (number | MenuItem)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'menu';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      button: {
+                        label: string;
+                        url: string;
+                      };
+                      style?: ('green' | 'gold' | 'cream') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'call-to-action';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading?: string | null;
+                      intro?: string | null;
+                      displayMode: 'always' | 'accordion';
+                      /**
+                       * When disabled, opening one item closes the others.
+                       */
+                      allowMultipleOpen?: boolean | null;
+                      items?:
+                        | {
+                            title: string;
+                            description: string;
+                            id?: string | null;
+                          }[]
+                        | null;
+                      backgroundColor?:
+                        | (
+                            | 'green'
+                            | 'deep-green'
+                            | 'gold'
+                            | 'light-gold'
+                            | 'sage'
+                            | 'cream'
+                            | 'offwhite'
+                            | 'charcoal'
+                            | 'white'
+                          )
+                        | null;
+                      headingColor?:
+                        | (
+                            | 'green'
+                            | 'deep-green'
+                            | 'gold'
+                            | 'light-gold'
+                            | 'sage'
+                            | 'cream'
+                            | 'offwhite'
+                            | 'charcoal'
+                            | 'white'
+                          )
+                        | null;
+                      textColor?:
+                        | (
+                            | 'green'
+                            | 'deep-green'
+                            | 'gold'
+                            | 'light-gold'
+                            | 'sage'
+                            | 'cream'
+                            | 'offwhite'
+                            | 'charcoal'
+                            | 'white'
+                          )
+                        | null;
+                      accentColor?:
+                        | (
+                            | 'green'
+                            | 'deep-green'
+                            | 'gold'
+                            | 'light-gold'
+                            | 'sage'
+                            | 'cream'
+                            | 'offwhite'
+                            | 'charcoal'
+                            | 'white'
+                          )
+                        | null;
+                      alignment?: ('left' | 'center') | null;
+                      contentWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+                      corners?: ('square' | 'small' | 'medium' | 'large') | null;
+                      shadow?: boolean | null;
+                      entranceAnimation?: ('none' | 'fade-in' | 'fade-up') | null;
+                      hoverEffect?: ('none' | 'lift' | 'accent-border') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'text-disclosure';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      background?: ('cream' | 'offwhite' | 'green') | null;
+                      textColor?: ('dark' | 'light') | null;
+                      pillars?:
+                        | {
+                            title: string;
+                            description: string;
+                            image?: (number | null) | Media;
+                            link?: string | null;
+                            linkLabel?: string | null;
+                            id?: string | null;
+                          }[]
+                        | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'impact-pillars';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      content?: string | null;
+                      backgroundImage: number | Media;
+                      /**
+                       * Overlay opacity as a percentage, from 0 to 100.
+                       */
+                      overlayOpacity?: number | null;
+                      alignment?: ('left' | 'center') | null;
+                      height?: ('medium' | 'large') | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'impact-parallax';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      initiatives?: (number | ImpactInitiative)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'impact-initiatives';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description: string;
+                      image: number | Media;
+                      imagePosition?: ('left' | 'right') | null;
+                      imageAspectRatio?: ('square' | 'portrait' | 'landscape' | 'wide') | null;
+                      imageFit?: ('cover' | 'contain') | null;
+                      verticalAlignment?: ('start' | 'center' | 'end') | null;
+                      backgroundColor?: ('transparent' | 'cream' | 'offwhite' | 'green' | 'deep-green' | 'gold') | null;
+                      textColor?: ('charcoal' | 'deep-green' | 'green' | 'white') | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      shadow?: boolean | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'image-text';
+                    }
+                  | {
+                      image: number | Media;
+                      /**
+                       * Describe the image for accessibility. If blank, the media alt text is used.
+                       */
+                      altText?: string | null;
+                      caption?: string | null;
+                      aspectRatio?: ('auto' | 'square' | 'portrait' | 'landscape' | 'wide') | null;
+                      fit?: ('cover' | 'contain') | null;
+                      objectPosition?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
+                      corners?: ('none' | 'small' | 'medium' | 'large') | null;
+                      shadow?: boolean | null;
+                      link?: string | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'single-image';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      text: string;
+                      style?: ('lead' | 'quote' | 'statement' | 'supporting') | null;
+                      size?: ('small' | 'medium' | 'large' | 'xl') | null;
+                      weight?: ('normal' | 'medium' | 'semibold' | 'bold') | null;
+                      italic?: boolean | null;
+                      color?: ('charcoal' | 'deep-green' | 'green' | 'gold' | 'cream' | 'white') | null;
+                      alignment?: ('left' | 'center' | 'right') | null;
+                      maxWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+                      decoration?: ('none' | 'gold-border' | 'gold-background' | 'cream-background') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'emphasized-text';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      text: string;
+                      level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+                      size?: ('xs' | 'sm' | 'md' | 'large' | 'xl' | 'display') | null;
+                      weight?: ('normal' | 'medium' | 'semibold' | 'bold') | null;
+                      alignment?: ('left' | 'center' | 'right') | null;
+                      color?: ('deep-green' | 'green' | 'gold' | 'charcoal' | 'cream' | 'white') | null;
+                      maxWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+                      bottomSpacing?: ('none' | 'small' | 'medium' | 'large') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'heading';
+                    }
+                )[]
+              | null;
+            maxWidth?: ('medium' | 'wide' | 'extra-wide' | 'full') | null;
+            backgroundColor?:
+              ('transparent' | 'cream' | 'offwhite' | 'green' | 'deep-green' | 'gold' | 'charcoal') | null;
+            padding?: ('none' | 'compact' | 'comfortable' | 'spacious') | null;
+            gap?: ('small' | 'medium' | 'large') | null;
+            corners?: ('none' | 'small' | 'medium' | 'large') | null;
+            shadow?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'container';
+          }
+        | {
+            heading?: string | null;
+            description?: string | null;
+            mobileColumns?: ('1' | '2') | null;
+            tabletColumns?: ('1' | '2' | '3') | null;
+            desktopColumns?: ('1' | '2' | '3' | '4') | null;
+            gap?: ('small' | 'medium' | 'large') | null;
+            items?:
+              | {
+                  /**
+                   * Optional label to help identify this grid item.
+                   */
+                  title?: string | null;
+                  blocks?:
+                    | (
+                        | {
+                            eyebrow?: string | null;
+                            heading: string;
+                            subheading?: string | null;
+                            backgroundImage?: (number | null) | Media;
+                            primaryButton?: {
+                              label?: string | null;
+                              url?: string | null;
+                            };
+                            secondaryButton?: {
+                              label?: string | null;
+                              url?: string | null;
+                            };
+                            alignment?: ('left' | 'center' | 'right') | null;
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'hero';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading: string;
+                            content: string;
+                            image?: (number | null) | Media;
+                            imagePosition?: ('left' | 'right') | null;
+                            button?: {
+                              label?: string | null;
+                              url?: string | null;
+                            };
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'split-content';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading?: string | null;
+                            description?: string | null;
+                            images?: (number | Media)[] | null;
+                            layout?: ('grid' | 'masonry' | 'featured') | null;
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'gallery';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading: string;
+                            description?: string | null;
+                            products?: (number | Product)[] | null;
+                            button?: {
+                              label?: string | null;
+                              url?: string | null;
+                            };
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'product-showcase';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading: string;
+                            description?: string | null;
+                            stories?: (number | Story)[] | null;
+                            button?: {
+                              label?: string | null;
+                              url?: string | null;
+                            };
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'story-showcase';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading: string;
+                            description?: string | null;
+                            stats?:
+                              | {
+                                  value: string;
+                                  label: string;
+                                  description?: string | null;
+                                  id?: string | null;
+                                }[]
+                              | null;
+                            initiatives?: (number | ImpactInitiative)[] | null;
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'impact-stats';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading: string;
+                            description?: string | null;
+                            events?: (number | Event)[] | null;
+                            button?: {
+                              label?: string | null;
+                              url?: string | null;
+                            };
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'events';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading: string;
+                            description?: string | null;
+                            items?: (number | MenuItem)[] | null;
+                            button?: {
+                              label?: string | null;
+                              url?: string | null;
+                            };
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'menu';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading: string;
+                            description?: string | null;
+                            button: {
+                              label: string;
+                              url: string;
+                            };
+                            style?: ('green' | 'gold' | 'cream') | null;
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'call-to-action';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading?: string | null;
+                            intro?: string | null;
+                            displayMode: 'always' | 'accordion';
+                            /**
+                             * When disabled, opening one item closes the others.
+                             */
+                            allowMultipleOpen?: boolean | null;
+                            items?:
+                              | {
+                                  title: string;
+                                  description: string;
+                                  id?: string | null;
+                                }[]
+                              | null;
+                            backgroundColor?:
+                              | (
+                                  | 'green'
+                                  | 'deep-green'
+                                  | 'gold'
+                                  | 'light-gold'
+                                  | 'sage'
+                                  | 'cream'
+                                  | 'offwhite'
+                                  | 'charcoal'
+                                  | 'white'
+                                )
+                              | null;
+                            headingColor?:
+                              | (
+                                  | 'green'
+                                  | 'deep-green'
+                                  | 'gold'
+                                  | 'light-gold'
+                                  | 'sage'
+                                  | 'cream'
+                                  | 'offwhite'
+                                  | 'charcoal'
+                                  | 'white'
+                                )
+                              | null;
+                            textColor?:
+                              | (
+                                  | 'green'
+                                  | 'deep-green'
+                                  | 'gold'
+                                  | 'light-gold'
+                                  | 'sage'
+                                  | 'cream'
+                                  | 'offwhite'
+                                  | 'charcoal'
+                                  | 'white'
+                                )
+                              | null;
+                            accentColor?:
+                              | (
+                                  | 'green'
+                                  | 'deep-green'
+                                  | 'gold'
+                                  | 'light-gold'
+                                  | 'sage'
+                                  | 'cream'
+                                  | 'offwhite'
+                                  | 'charcoal'
+                                  | 'white'
+                                )
+                              | null;
+                            alignment?: ('left' | 'center') | null;
+                            contentWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+                            corners?: ('square' | 'small' | 'medium' | 'large') | null;
+                            shadow?: boolean | null;
+                            entranceAnimation?: ('none' | 'fade-in' | 'fade-up') | null;
+                            hoverEffect?: ('none' | 'lift' | 'accent-border') | null;
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'text-disclosure';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading: string;
+                            description?: string | null;
+                            background?: ('cream' | 'offwhite' | 'green') | null;
+                            textColor?: ('dark' | 'light') | null;
+                            pillars?:
+                              | {
+                                  title: string;
+                                  description: string;
+                                  image?: (number | null) | Media;
+                                  link?: string | null;
+                                  linkLabel?: string | null;
+                                  id?: string | null;
+                                }[]
+                              | null;
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'impact-pillars';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading: string;
+                            content?: string | null;
+                            backgroundImage: number | Media;
+                            /**
+                             * Overlay opacity as a percentage, from 0 to 100.
+                             */
+                            overlayOpacity?: number | null;
+                            alignment?: ('left' | 'center') | null;
+                            height?: ('medium' | 'large') | null;
+                            button?: {
+                              label?: string | null;
+                              url?: string | null;
+                            };
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'impact-parallax';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading: string;
+                            description?: string | null;
+                            initiatives?: (number | ImpactInitiative)[] | null;
+                            button?: {
+                              label?: string | null;
+                              url?: string | null;
+                            };
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'impact-initiatives';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading: string;
+                            description: string;
+                            image: number | Media;
+                            imagePosition?: ('left' | 'right') | null;
+                            imageAspectRatio?: ('square' | 'portrait' | 'landscape' | 'wide') | null;
+                            imageFit?: ('cover' | 'contain') | null;
+                            verticalAlignment?: ('start' | 'center' | 'end') | null;
+                            backgroundColor?:
+                              ('transparent' | 'cream' | 'offwhite' | 'green' | 'deep-green' | 'gold') | null;
+                            textColor?: ('charcoal' | 'deep-green' | 'green' | 'white') | null;
+                            button?: {
+                              label?: string | null;
+                              url?: string | null;
+                            };
+                            shadow?: boolean | null;
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'image-text';
+                          }
+                        | {
+                            image: number | Media;
+                            /**
+                             * Describe the image for accessibility. If blank, the media alt text is used.
+                             */
+                            altText?: string | null;
+                            caption?: string | null;
+                            aspectRatio?: ('auto' | 'square' | 'portrait' | 'landscape' | 'wide') | null;
+                            fit?: ('cover' | 'contain') | null;
+                            objectPosition?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
+                            corners?: ('none' | 'small' | 'medium' | 'large') | null;
+                            shadow?: boolean | null;
+                            link?: string | null;
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'single-image';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            text: string;
+                            style?: ('lead' | 'quote' | 'statement' | 'supporting') | null;
+                            size?: ('small' | 'medium' | 'large' | 'xl') | null;
+                            weight?: ('normal' | 'medium' | 'semibold' | 'bold') | null;
+                            italic?: boolean | null;
+                            color?: ('charcoal' | 'deep-green' | 'green' | 'gold' | 'cream' | 'white') | null;
+                            alignment?: ('left' | 'center' | 'right') | null;
+                            maxWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+                            decoration?: ('none' | 'gold-border' | 'gold-background' | 'cream-background') | null;
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'emphasized-text';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            text: string;
+                            level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+                            size?: ('xs' | 'sm' | 'md' | 'large' | 'xl' | 'display') | null;
+                            weight?: ('normal' | 'medium' | 'semibold' | 'bold') | null;
+                            alignment?: ('left' | 'center' | 'right') | null;
+                            color?: ('deep-green' | 'green' | 'gold' | 'charcoal' | 'cream' | 'white') | null;
+                            maxWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+                            bottomSpacing?: ('none' | 'small' | 'medium' | 'large') | null;
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'heading';
+                          }
+                      )[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'responsive-grid';
+          }
+        | {
+            heading?: string | null;
+            description?: string | null;
+            desktopRatio?: ('equal' | '40-60' | '60-40' | '33-67' | '67-33') | null;
+            mobileOrder?: ('first' | 'second') | null;
+            gap?: ('small' | 'medium' | 'large') | null;
+            verticalAlignment?: ('start' | 'center' | 'end') | null;
+            firstContent?:
+              | (
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      subheading?: string | null;
+                      backgroundImage?: (number | null) | Media;
+                      primaryButton?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      secondaryButton?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      alignment?: ('left' | 'center' | 'right') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'hero';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      content: string;
+                      image?: (number | null) | Media;
+                      imagePosition?: ('left' | 'right') | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'split-content';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading?: string | null;
+                      description?: string | null;
+                      images?: (number | Media)[] | null;
+                      layout?: ('grid' | 'masonry' | 'featured') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'gallery';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      products?: (number | Product)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'product-showcase';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      stories?: (number | Story)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'story-showcase';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      stats?:
+                        | {
+                            value: string;
+                            label: string;
+                            description?: string | null;
+                            id?: string | null;
+                          }[]
+                        | null;
+                      initiatives?: (number | ImpactInitiative)[] | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'impact-stats';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      events?: (number | Event)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'events';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      items?: (number | MenuItem)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'menu';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      button: {
+                        label: string;
+                        url: string;
+                      };
+                      style?: ('green' | 'gold' | 'cream') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'call-to-action';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading?: string | null;
+                      intro?: string | null;
+                      displayMode: 'always' | 'accordion';
+                      /**
+                       * When disabled, opening one item closes the others.
+                       */
+                      allowMultipleOpen?: boolean | null;
+                      items?:
+                        | {
+                            title: string;
+                            description: string;
+                            id?: string | null;
+                          }[]
+                        | null;
+                      backgroundColor?:
+                        | (
+                            | 'green'
+                            | 'deep-green'
+                            | 'gold'
+                            | 'light-gold'
+                            | 'sage'
+                            | 'cream'
+                            | 'offwhite'
+                            | 'charcoal'
+                            | 'white'
+                          )
+                        | null;
+                      headingColor?:
+                        | (
+                            | 'green'
+                            | 'deep-green'
+                            | 'gold'
+                            | 'light-gold'
+                            | 'sage'
+                            | 'cream'
+                            | 'offwhite'
+                            | 'charcoal'
+                            | 'white'
+                          )
+                        | null;
+                      textColor?:
+                        | (
+                            | 'green'
+                            | 'deep-green'
+                            | 'gold'
+                            | 'light-gold'
+                            | 'sage'
+                            | 'cream'
+                            | 'offwhite'
+                            | 'charcoal'
+                            | 'white'
+                          )
+                        | null;
+                      accentColor?:
+                        | (
+                            | 'green'
+                            | 'deep-green'
+                            | 'gold'
+                            | 'light-gold'
+                            | 'sage'
+                            | 'cream'
+                            | 'offwhite'
+                            | 'charcoal'
+                            | 'white'
+                          )
+                        | null;
+                      alignment?: ('left' | 'center') | null;
+                      contentWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+                      corners?: ('square' | 'small' | 'medium' | 'large') | null;
+                      shadow?: boolean | null;
+                      entranceAnimation?: ('none' | 'fade-in' | 'fade-up') | null;
+                      hoverEffect?: ('none' | 'lift' | 'accent-border') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'text-disclosure';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      background?: ('cream' | 'offwhite' | 'green') | null;
+                      textColor?: ('dark' | 'light') | null;
+                      pillars?:
+                        | {
+                            title: string;
+                            description: string;
+                            image?: (number | null) | Media;
+                            link?: string | null;
+                            linkLabel?: string | null;
+                            id?: string | null;
+                          }[]
+                        | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'impact-pillars';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      content?: string | null;
+                      backgroundImage: number | Media;
+                      /**
+                       * Overlay opacity as a percentage, from 0 to 100.
+                       */
+                      overlayOpacity?: number | null;
+                      alignment?: ('left' | 'center') | null;
+                      height?: ('medium' | 'large') | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'impact-parallax';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      initiatives?: (number | ImpactInitiative)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'impact-initiatives';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description: string;
+                      image: number | Media;
+                      imagePosition?: ('left' | 'right') | null;
+                      imageAspectRatio?: ('square' | 'portrait' | 'landscape' | 'wide') | null;
+                      imageFit?: ('cover' | 'contain') | null;
+                      verticalAlignment?: ('start' | 'center' | 'end') | null;
+                      backgroundColor?: ('transparent' | 'cream' | 'offwhite' | 'green' | 'deep-green' | 'gold') | null;
+                      textColor?: ('charcoal' | 'deep-green' | 'green' | 'white') | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      shadow?: boolean | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'image-text';
+                    }
+                  | {
+                      image: number | Media;
+                      /**
+                       * Describe the image for accessibility. If blank, the media alt text is used.
+                       */
+                      altText?: string | null;
+                      caption?: string | null;
+                      aspectRatio?: ('auto' | 'square' | 'portrait' | 'landscape' | 'wide') | null;
+                      fit?: ('cover' | 'contain') | null;
+                      objectPosition?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
+                      corners?: ('none' | 'small' | 'medium' | 'large') | null;
+                      shadow?: boolean | null;
+                      link?: string | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'single-image';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      text: string;
+                      style?: ('lead' | 'quote' | 'statement' | 'supporting') | null;
+                      size?: ('small' | 'medium' | 'large' | 'xl') | null;
+                      weight?: ('normal' | 'medium' | 'semibold' | 'bold') | null;
+                      italic?: boolean | null;
+                      color?: ('charcoal' | 'deep-green' | 'green' | 'gold' | 'cream' | 'white') | null;
+                      alignment?: ('left' | 'center' | 'right') | null;
+                      maxWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+                      decoration?: ('none' | 'gold-border' | 'gold-background' | 'cream-background') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'emphasized-text';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      text: string;
+                      level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+                      size?: ('xs' | 'sm' | 'md' | 'large' | 'xl' | 'display') | null;
+                      weight?: ('normal' | 'medium' | 'semibold' | 'bold') | null;
+                      alignment?: ('left' | 'center' | 'right') | null;
+                      color?: ('deep-green' | 'green' | 'gold' | 'charcoal' | 'cream' | 'white') | null;
+                      maxWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+                      bottomSpacing?: ('none' | 'small' | 'medium' | 'large') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'heading';
+                    }
+                )[]
+              | null;
+            secondContent?:
+              | (
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      subheading?: string | null;
+                      backgroundImage?: (number | null) | Media;
+                      primaryButton?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      secondaryButton?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      alignment?: ('left' | 'center' | 'right') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'hero';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      content: string;
+                      image?: (number | null) | Media;
+                      imagePosition?: ('left' | 'right') | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'split-content';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading?: string | null;
+                      description?: string | null;
+                      images?: (number | Media)[] | null;
+                      layout?: ('grid' | 'masonry' | 'featured') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'gallery';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      products?: (number | Product)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'product-showcase';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      stories?: (number | Story)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'story-showcase';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      stats?:
+                        | {
+                            value: string;
+                            label: string;
+                            description?: string | null;
+                            id?: string | null;
+                          }[]
+                        | null;
+                      initiatives?: (number | ImpactInitiative)[] | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'impact-stats';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      events?: (number | Event)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'events';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      items?: (number | MenuItem)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'menu';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      button: {
+                        label: string;
+                        url: string;
+                      };
+                      style?: ('green' | 'gold' | 'cream') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'call-to-action';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading?: string | null;
+                      intro?: string | null;
+                      displayMode: 'always' | 'accordion';
+                      /**
+                       * When disabled, opening one item closes the others.
+                       */
+                      allowMultipleOpen?: boolean | null;
+                      items?:
+                        | {
+                            title: string;
+                            description: string;
+                            id?: string | null;
+                          }[]
+                        | null;
+                      backgroundColor?:
+                        | (
+                            | 'green'
+                            | 'deep-green'
+                            | 'gold'
+                            | 'light-gold'
+                            | 'sage'
+                            | 'cream'
+                            | 'offwhite'
+                            | 'charcoal'
+                            | 'white'
+                          )
+                        | null;
+                      headingColor?:
+                        | (
+                            | 'green'
+                            | 'deep-green'
+                            | 'gold'
+                            | 'light-gold'
+                            | 'sage'
+                            | 'cream'
+                            | 'offwhite'
+                            | 'charcoal'
+                            | 'white'
+                          )
+                        | null;
+                      textColor?:
+                        | (
+                            | 'green'
+                            | 'deep-green'
+                            | 'gold'
+                            | 'light-gold'
+                            | 'sage'
+                            | 'cream'
+                            | 'offwhite'
+                            | 'charcoal'
+                            | 'white'
+                          )
+                        | null;
+                      accentColor?:
+                        | (
+                            | 'green'
+                            | 'deep-green'
+                            | 'gold'
+                            | 'light-gold'
+                            | 'sage'
+                            | 'cream'
+                            | 'offwhite'
+                            | 'charcoal'
+                            | 'white'
+                          )
+                        | null;
+                      alignment?: ('left' | 'center') | null;
+                      contentWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+                      corners?: ('square' | 'small' | 'medium' | 'large') | null;
+                      shadow?: boolean | null;
+                      entranceAnimation?: ('none' | 'fade-in' | 'fade-up') | null;
+                      hoverEffect?: ('none' | 'lift' | 'accent-border') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'text-disclosure';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      background?: ('cream' | 'offwhite' | 'green') | null;
+                      textColor?: ('dark' | 'light') | null;
+                      pillars?:
+                        | {
+                            title: string;
+                            description: string;
+                            image?: (number | null) | Media;
+                            link?: string | null;
+                            linkLabel?: string | null;
+                            id?: string | null;
+                          }[]
+                        | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'impact-pillars';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      content?: string | null;
+                      backgroundImage: number | Media;
+                      /**
+                       * Overlay opacity as a percentage, from 0 to 100.
+                       */
+                      overlayOpacity?: number | null;
+                      alignment?: ('left' | 'center') | null;
+                      height?: ('medium' | 'large') | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'impact-parallax';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description?: string | null;
+                      initiatives?: (number | ImpactInitiative)[] | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'impact-initiatives';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading: string;
+                      description: string;
+                      image: number | Media;
+                      imagePosition?: ('left' | 'right') | null;
+                      imageAspectRatio?: ('square' | 'portrait' | 'landscape' | 'wide') | null;
+                      imageFit?: ('cover' | 'contain') | null;
+                      verticalAlignment?: ('start' | 'center' | 'end') | null;
+                      backgroundColor?: ('transparent' | 'cream' | 'offwhite' | 'green' | 'deep-green' | 'gold') | null;
+                      textColor?: ('charcoal' | 'deep-green' | 'green' | 'white') | null;
+                      button?: {
+                        label?: string | null;
+                        url?: string | null;
+                      };
+                      shadow?: boolean | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'image-text';
+                    }
+                  | {
+                      image: number | Media;
+                      /**
+                       * Describe the image for accessibility. If blank, the media alt text is used.
+                       */
+                      altText?: string | null;
+                      caption?: string | null;
+                      aspectRatio?: ('auto' | 'square' | 'portrait' | 'landscape' | 'wide') | null;
+                      fit?: ('cover' | 'contain') | null;
+                      objectPosition?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
+                      corners?: ('none' | 'small' | 'medium' | 'large') | null;
+                      shadow?: boolean | null;
+                      link?: string | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'single-image';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      text: string;
+                      style?: ('lead' | 'quote' | 'statement' | 'supporting') | null;
+                      size?: ('small' | 'medium' | 'large' | 'xl') | null;
+                      weight?: ('normal' | 'medium' | 'semibold' | 'bold') | null;
+                      italic?: boolean | null;
+                      color?: ('charcoal' | 'deep-green' | 'green' | 'gold' | 'cream' | 'white') | null;
+                      alignment?: ('left' | 'center' | 'right') | null;
+                      maxWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+                      decoration?: ('none' | 'gold-border' | 'gold-background' | 'cream-background') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'emphasized-text';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      text: string;
+                      level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+                      size?: ('xs' | 'sm' | 'md' | 'large' | 'xl' | 'display') | null;
+                      weight?: ('normal' | 'medium' | 'semibold' | 'bold') | null;
+                      alignment?: ('left' | 'center' | 'right') | null;
+                      color?: ('deep-green' | 'green' | 'gold' | 'charcoal' | 'cream' | 'white') | null;
+                      maxWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+                      bottomSpacing?: ('none' | 'small' | 'medium' | 'large') | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'heading';
+                    }
+                )[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'responsive-split';
+          }
+        | {
+            eyebrow?: string | null;
+            heading: string;
+            description: string;
+            image: number | Media;
+            imagePosition?: ('left' | 'right') | null;
+            imageAspectRatio?: ('square' | 'portrait' | 'landscape' | 'wide') | null;
+            imageFit?: ('cover' | 'contain') | null;
+            verticalAlignment?: ('start' | 'center' | 'end') | null;
+            backgroundColor?: ('transparent' | 'cream' | 'offwhite' | 'green' | 'deep-green' | 'gold') | null;
+            textColor?: ('charcoal' | 'deep-green' | 'green' | 'white') | null;
+            button?: {
+              label?: string | null;
+              url?: string | null;
+            };
+            shadow?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'image-text';
+          }
+        | {
+            image: number | Media;
+            /**
+             * Describe the image for accessibility. If blank, the media alt text is used.
+             */
+            altText?: string | null;
+            caption?: string | null;
+            aspectRatio?: ('auto' | 'square' | 'portrait' | 'landscape' | 'wide') | null;
+            fit?: ('cover' | 'contain') | null;
+            objectPosition?: ('center' | 'top' | 'bottom' | 'left' | 'right') | null;
+            corners?: ('none' | 'small' | 'medium' | 'large') | null;
+            shadow?: boolean | null;
+            link?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'single-image';
+          }
+        | {
+            eyebrow?: string | null;
+            text: string;
+            style?: ('lead' | 'quote' | 'statement' | 'supporting') | null;
+            size?: ('small' | 'medium' | 'large' | 'xl') | null;
+            weight?: ('normal' | 'medium' | 'semibold' | 'bold') | null;
+            italic?: boolean | null;
+            color?: ('charcoal' | 'deep-green' | 'green' | 'gold' | 'cream' | 'white') | null;
+            alignment?: ('left' | 'center' | 'right') | null;
+            maxWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+            decoration?: ('none' | 'gold-border' | 'gold-background' | 'cream-background') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'emphasized-text';
+          }
+        | {
+            eyebrow?: string | null;
+            text: string;
+            level: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+            size?: ('xs' | 'sm' | 'md' | 'large' | 'xl' | 'display') | null;
+            weight?: ('normal' | 'medium' | 'semibold' | 'bold') | null;
+            alignment?: ('left' | 'center' | 'right') | null;
+            color?: ('deep-green' | 'green' | 'gold' | 'charcoal' | 'cream' | 'white') | null;
+            maxWidth?: ('narrow' | 'medium' | 'wide' | 'full') | null;
+            bottomSpacing?: ('none' | 'small' | 'medium' | 'large') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'heading';
           }
       )[]
     | null;
@@ -1020,6 +2467,7 @@ export interface PagesSelect<T extends boolean = true> {
               heading?: T;
               description?: T;
               background?: T;
+              textColor?: T;
               pillars?:
                 | T
                 | {
@@ -1065,6 +2513,1371 @@ export interface PagesSelect<T extends boolean = true> {
                     label?: T;
                     url?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        'text-disclosure'?:
+          | T
+          | {
+              eyebrow?: T;
+              heading?: T;
+              intro?: T;
+              displayMode?: T;
+              allowMultipleOpen?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              backgroundColor?: T;
+              headingColor?: T;
+              textColor?: T;
+              accentColor?: T;
+              alignment?: T;
+              contentWidth?: T;
+              corners?: T;
+              shadow?: T;
+              entranceAnimation?: T;
+              hoverEffect?: T;
+              id?: T;
+              blockName?: T;
+            };
+        container?:
+          | T
+          | {
+              eyebrow?: T;
+              heading?: T;
+              blocks?:
+                | T
+                | {
+                    hero?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          subheading?: T;
+                          backgroundImage?: T;
+                          primaryButton?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          secondaryButton?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          alignment?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'split-content'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          content?: T;
+                          image?: T;
+                          imagePosition?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    gallery?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          images?: T;
+                          layout?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'product-showcase'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          products?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'story-showcase'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          stories?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'impact-stats'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          stats?:
+                            | T
+                            | {
+                                value?: T;
+                                label?: T;
+                                description?: T;
+                                id?: T;
+                              };
+                          initiatives?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    events?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          events?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    menu?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          items?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'call-to-action'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          style?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'text-disclosure'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          intro?: T;
+                          displayMode?: T;
+                          allowMultipleOpen?: T;
+                          items?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                id?: T;
+                              };
+                          backgroundColor?: T;
+                          headingColor?: T;
+                          textColor?: T;
+                          accentColor?: T;
+                          alignment?: T;
+                          contentWidth?: T;
+                          corners?: T;
+                          shadow?: T;
+                          entranceAnimation?: T;
+                          hoverEffect?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'impact-pillars'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          background?: T;
+                          textColor?: T;
+                          pillars?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                image?: T;
+                                link?: T;
+                                linkLabel?: T;
+                                id?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'impact-parallax'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          content?: T;
+                          backgroundImage?: T;
+                          overlayOpacity?: T;
+                          alignment?: T;
+                          height?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'impact-initiatives'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          initiatives?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'image-text'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          image?: T;
+                          imagePosition?: T;
+                          imageAspectRatio?: T;
+                          imageFit?: T;
+                          verticalAlignment?: T;
+                          backgroundColor?: T;
+                          textColor?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          shadow?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'single-image'?:
+                      | T
+                      | {
+                          image?: T;
+                          altText?: T;
+                          caption?: T;
+                          aspectRatio?: T;
+                          fit?: T;
+                          objectPosition?: T;
+                          corners?: T;
+                          shadow?: T;
+                          link?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'emphasized-text'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          text?: T;
+                          style?: T;
+                          size?: T;
+                          weight?: T;
+                          italic?: T;
+                          color?: T;
+                          alignment?: T;
+                          maxWidth?: T;
+                          decoration?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    heading?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          text?: T;
+                          level?: T;
+                          size?: T;
+                          weight?: T;
+                          alignment?: T;
+                          color?: T;
+                          maxWidth?: T;
+                          bottomSpacing?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              maxWidth?: T;
+              backgroundColor?: T;
+              padding?: T;
+              gap?: T;
+              corners?: T;
+              shadow?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'responsive-grid'?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              mobileColumns?: T;
+              tabletColumns?: T;
+              desktopColumns?: T;
+              gap?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    blocks?:
+                      | T
+                      | {
+                          hero?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                subheading?: T;
+                                backgroundImage?: T;
+                                primaryButton?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      url?: T;
+                                    };
+                                secondaryButton?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      url?: T;
+                                    };
+                                alignment?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'split-content'?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                content?: T;
+                                image?: T;
+                                imagePosition?: T;
+                                button?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      url?: T;
+                                    };
+                                id?: T;
+                                blockName?: T;
+                              };
+                          gallery?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                description?: T;
+                                images?: T;
+                                layout?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'product-showcase'?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                description?: T;
+                                products?: T;
+                                button?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      url?: T;
+                                    };
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'story-showcase'?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                description?: T;
+                                stories?: T;
+                                button?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      url?: T;
+                                    };
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'impact-stats'?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                description?: T;
+                                stats?:
+                                  | T
+                                  | {
+                                      value?: T;
+                                      label?: T;
+                                      description?: T;
+                                      id?: T;
+                                    };
+                                initiatives?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                          events?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                description?: T;
+                                events?: T;
+                                button?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      url?: T;
+                                    };
+                                id?: T;
+                                blockName?: T;
+                              };
+                          menu?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                description?: T;
+                                items?: T;
+                                button?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      url?: T;
+                                    };
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'call-to-action'?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                description?: T;
+                                button?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      url?: T;
+                                    };
+                                style?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'text-disclosure'?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                intro?: T;
+                                displayMode?: T;
+                                allowMultipleOpen?: T;
+                                items?:
+                                  | T
+                                  | {
+                                      title?: T;
+                                      description?: T;
+                                      id?: T;
+                                    };
+                                backgroundColor?: T;
+                                headingColor?: T;
+                                textColor?: T;
+                                accentColor?: T;
+                                alignment?: T;
+                                contentWidth?: T;
+                                corners?: T;
+                                shadow?: T;
+                                entranceAnimation?: T;
+                                hoverEffect?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'impact-pillars'?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                description?: T;
+                                background?: T;
+                                textColor?: T;
+                                pillars?:
+                                  | T
+                                  | {
+                                      title?: T;
+                                      description?: T;
+                                      image?: T;
+                                      link?: T;
+                                      linkLabel?: T;
+                                      id?: T;
+                                    };
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'impact-parallax'?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                content?: T;
+                                backgroundImage?: T;
+                                overlayOpacity?: T;
+                                alignment?: T;
+                                height?: T;
+                                button?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      url?: T;
+                                    };
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'impact-initiatives'?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                description?: T;
+                                initiatives?: T;
+                                button?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      url?: T;
+                                    };
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'image-text'?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                description?: T;
+                                image?: T;
+                                imagePosition?: T;
+                                imageAspectRatio?: T;
+                                imageFit?: T;
+                                verticalAlignment?: T;
+                                backgroundColor?: T;
+                                textColor?: T;
+                                button?:
+                                  | T
+                                  | {
+                                      label?: T;
+                                      url?: T;
+                                    };
+                                shadow?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'single-image'?:
+                            | T
+                            | {
+                                image?: T;
+                                altText?: T;
+                                caption?: T;
+                                aspectRatio?: T;
+                                fit?: T;
+                                objectPosition?: T;
+                                corners?: T;
+                                shadow?: T;
+                                link?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'emphasized-text'?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                text?: T;
+                                style?: T;
+                                size?: T;
+                                weight?: T;
+                                italic?: T;
+                                color?: T;
+                                alignment?: T;
+                                maxWidth?: T;
+                                decoration?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                          heading?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                text?: T;
+                                level?: T;
+                                size?: T;
+                                weight?: T;
+                                alignment?: T;
+                                color?: T;
+                                maxWidth?: T;
+                                bottomSpacing?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'responsive-split'?:
+          | T
+          | {
+              heading?: T;
+              description?: T;
+              desktopRatio?: T;
+              mobileOrder?: T;
+              gap?: T;
+              verticalAlignment?: T;
+              firstContent?:
+                | T
+                | {
+                    hero?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          subheading?: T;
+                          backgroundImage?: T;
+                          primaryButton?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          secondaryButton?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          alignment?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'split-content'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          content?: T;
+                          image?: T;
+                          imagePosition?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    gallery?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          images?: T;
+                          layout?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'product-showcase'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          products?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'story-showcase'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          stories?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'impact-stats'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          stats?:
+                            | T
+                            | {
+                                value?: T;
+                                label?: T;
+                                description?: T;
+                                id?: T;
+                              };
+                          initiatives?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    events?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          events?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    menu?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          items?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'call-to-action'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          style?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'text-disclosure'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          intro?: T;
+                          displayMode?: T;
+                          allowMultipleOpen?: T;
+                          items?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                id?: T;
+                              };
+                          backgroundColor?: T;
+                          headingColor?: T;
+                          textColor?: T;
+                          accentColor?: T;
+                          alignment?: T;
+                          contentWidth?: T;
+                          corners?: T;
+                          shadow?: T;
+                          entranceAnimation?: T;
+                          hoverEffect?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'impact-pillars'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          background?: T;
+                          textColor?: T;
+                          pillars?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                image?: T;
+                                link?: T;
+                                linkLabel?: T;
+                                id?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'impact-parallax'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          content?: T;
+                          backgroundImage?: T;
+                          overlayOpacity?: T;
+                          alignment?: T;
+                          height?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'impact-initiatives'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          initiatives?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'image-text'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          image?: T;
+                          imagePosition?: T;
+                          imageAspectRatio?: T;
+                          imageFit?: T;
+                          verticalAlignment?: T;
+                          backgroundColor?: T;
+                          textColor?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          shadow?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'single-image'?:
+                      | T
+                      | {
+                          image?: T;
+                          altText?: T;
+                          caption?: T;
+                          aspectRatio?: T;
+                          fit?: T;
+                          objectPosition?: T;
+                          corners?: T;
+                          shadow?: T;
+                          link?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'emphasized-text'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          text?: T;
+                          style?: T;
+                          size?: T;
+                          weight?: T;
+                          italic?: T;
+                          color?: T;
+                          alignment?: T;
+                          maxWidth?: T;
+                          decoration?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    heading?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          text?: T;
+                          level?: T;
+                          size?: T;
+                          weight?: T;
+                          alignment?: T;
+                          color?: T;
+                          maxWidth?: T;
+                          bottomSpacing?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              secondContent?:
+                | T
+                | {
+                    hero?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          subheading?: T;
+                          backgroundImage?: T;
+                          primaryButton?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          secondaryButton?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          alignment?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'split-content'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          content?: T;
+                          image?: T;
+                          imagePosition?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    gallery?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          images?: T;
+                          layout?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'product-showcase'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          products?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'story-showcase'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          stories?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'impact-stats'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          stats?:
+                            | T
+                            | {
+                                value?: T;
+                                label?: T;
+                                description?: T;
+                                id?: T;
+                              };
+                          initiatives?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    events?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          events?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    menu?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          items?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'call-to-action'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          style?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'text-disclosure'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          intro?: T;
+                          displayMode?: T;
+                          allowMultipleOpen?: T;
+                          items?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                id?: T;
+                              };
+                          backgroundColor?: T;
+                          headingColor?: T;
+                          textColor?: T;
+                          accentColor?: T;
+                          alignment?: T;
+                          contentWidth?: T;
+                          corners?: T;
+                          shadow?: T;
+                          entranceAnimation?: T;
+                          hoverEffect?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'impact-pillars'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          background?: T;
+                          textColor?: T;
+                          pillars?:
+                            | T
+                            | {
+                                title?: T;
+                                description?: T;
+                                image?: T;
+                                link?: T;
+                                linkLabel?: T;
+                                id?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'impact-parallax'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          content?: T;
+                          backgroundImage?: T;
+                          overlayOpacity?: T;
+                          alignment?: T;
+                          height?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'impact-initiatives'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          initiatives?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'image-text'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          image?: T;
+                          imagePosition?: T;
+                          imageAspectRatio?: T;
+                          imageFit?: T;
+                          verticalAlignment?: T;
+                          backgroundColor?: T;
+                          textColor?: T;
+                          button?:
+                            | T
+                            | {
+                                label?: T;
+                                url?: T;
+                              };
+                          shadow?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'single-image'?:
+                      | T
+                      | {
+                          image?: T;
+                          altText?: T;
+                          caption?: T;
+                          aspectRatio?: T;
+                          fit?: T;
+                          objectPosition?: T;
+                          corners?: T;
+                          shadow?: T;
+                          link?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'emphasized-text'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          text?: T;
+                          style?: T;
+                          size?: T;
+                          weight?: T;
+                          italic?: T;
+                          color?: T;
+                          alignment?: T;
+                          maxWidth?: T;
+                          decoration?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    heading?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          text?: T;
+                          level?: T;
+                          size?: T;
+                          weight?: T;
+                          alignment?: T;
+                          color?: T;
+                          maxWidth?: T;
+                          bottomSpacing?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'image-text'?:
+          | T
+          | {
+              eyebrow?: T;
+              heading?: T;
+              description?: T;
+              image?: T;
+              imagePosition?: T;
+              imageAspectRatio?: T;
+              imageFit?: T;
+              verticalAlignment?: T;
+              backgroundColor?: T;
+              textColor?: T;
+              button?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
+                  };
+              shadow?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'single-image'?:
+          | T
+          | {
+              image?: T;
+              altText?: T;
+              caption?: T;
+              aspectRatio?: T;
+              fit?: T;
+              objectPosition?: T;
+              corners?: T;
+              shadow?: T;
+              link?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'emphasized-text'?:
+          | T
+          | {
+              eyebrow?: T;
+              text?: T;
+              style?: T;
+              size?: T;
+              weight?: T;
+              italic?: T;
+              color?: T;
+              alignment?: T;
+              maxWidth?: T;
+              decoration?: T;
+              id?: T;
+              blockName?: T;
+            };
+        heading?:
+          | T
+          | {
+              eyebrow?: T;
+              text?: T;
+              level?: T;
+              size?: T;
+              weight?: T;
+              alignment?: T;
+              color?: T;
+              maxWidth?: T;
+              bottomSpacing?: T;
               id?: T;
               blockName?: T;
             };
