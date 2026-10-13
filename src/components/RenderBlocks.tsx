@@ -22,6 +22,7 @@ import { SingleImageBlock } from './blocks/SingleImageBlock'
 import { ImageTextBlock } from './blocks/ImageTextBlock'
 import { EmphasizedTextBlock } from './blocks/EmphasizedTextBlock'
 import { HeadingBlock } from './blocks/HeadingBlock'
+import { ProductCatalogueBlock } from './blocks/ProductCatalogueBlock'
 
 type PageBlock = NonNullable<Page['layout']>[number]
 
@@ -96,6 +97,9 @@ export function RenderBlocks({ blocks }: { blocks?: PageBlock[] | null }) {
           case 'heading':
             return <HeadingBlock key={key} {...block} />  
 
+          case 'product-catalogue':
+            return <ProductCatalogueBlock key={key} {...block} />
+            
           default:
             return null
         }
