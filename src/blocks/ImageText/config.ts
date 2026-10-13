@@ -8,6 +8,86 @@ export const ImageText: Block = {
   },
   fields: [
     {
+      name: 'imageHeight',
+      type: 'select',
+      label: 'Image Height',
+      defaultValue: 'auto',
+      options: [
+        { label: 'Use Aspect Ratio', value: 'auto' },
+        { label: 'Compact', value: 'compact' },
+        { label: 'Medium', value: 'medium' },
+        { label: 'Tall', value: 'tall' },
+        { label: 'Extra Tall', value: 'extra-tall' },
+        { label: 'Viewport Height', value: 'viewport' },
+      ],
+    },
+    {
+      name: 'imageWidth',
+      type: 'select',
+      label: 'Image Column Width',
+      defaultValue: 'equal',
+      options: [
+        { label: 'Equal Columns', value: 'equal' },
+        { label: 'Image 40% / Text 60%', value: '40-60' },
+        { label: 'Image 50% / Text 50%', value: '50-50' },
+        { label: 'Image 60% / Text 40%', value: '60-40' },
+      ],
+    },
+    {
+      name: 'contentWidth',
+      type: 'select',
+      label: 'Content Width',
+      defaultValue: 'wide',
+      options: [
+        { label: 'Medium', value: 'medium' },
+        { label: 'Wide', value: 'wide' },
+        { label: 'Extra Wide', value: 'extra-wide' },
+        { label: 'Full Width', value: 'full' },
+      ],
+    },
+    {
+      name: 'sectionPadding',
+      type: 'select',
+      label: 'Section Padding',
+      defaultValue: 'comfortable',
+      options: [
+        { label: 'None', value: 'none' },
+        { label: 'Compact', value: 'compact' },
+        { label: 'Comfortable', value: 'comfortable' },
+        { label: 'Spacious', value: 'spacious' },
+      ],
+    },
+    {
+      name: 'columnGap',
+      type: 'select',
+      label: 'Space Between Columns',
+      defaultValue: 'medium',
+      options: [
+        { label: 'Small', value: 'small' },
+        { label: 'Medium', value: 'medium' },
+        { label: 'Large', value: 'large' },
+      ],
+    },
+    {
+      name: 'imageCorners',
+      type: 'select',
+      label: 'Image Corners',
+      defaultValue: 'medium',
+      options: [
+        { label: 'Square Corners', value: 'none' },
+        { label: 'Small Radius', value: 'small' },
+        { label: 'Medium Radius', value: 'medium' },
+        { label: 'Large Radius', value: 'large' },
+      ],
+    },
+    {
+      name: 'imageShadow',
+      type: 'checkbox',
+      label: 'Show Image Shadow',
+      defaultValue: true,
+    },
+
+    {
       name: 'eyebrow',
       type: 'text',
       label: 'Small Label',

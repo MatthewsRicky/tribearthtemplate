@@ -178,6 +178,27 @@ export const Products: CollectionConfig = {
             },
           ],
         },
+    
+        {
+          label: 'Shipping & Returns',
+          fields: [
+            {
+              name: 'inStockDelivery',
+              type: 'text',
+              label: 'In-stock Delivery Information',
+            },
+            {
+              name: 'madeToOrderDelivery',
+              type: 'text',
+              label: 'Made-to-order Delivery Information',
+            },
+            {
+              name: 'returnsPolicy',
+              type: 'textarea',
+              label: 'Returns Policy',
+            },
+          ],
+        },
       ],
     },
   ],

@@ -220,6 +220,9 @@ export interface Product {
   images?: (number | Media)[] | null;
   featured?: boolean | null;
   status?: ('draft' | 'active' | 'archived') | null;
+  inStockDelivery?: string | null;
+  madeToOrderDelivery?: string | null;
+  returnsPolicy?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -832,6 +835,13 @@ export interface Page {
                       blockType: 'impact-initiatives';
                     }
                   | {
+                      imageHeight?: ('auto' | 'compact' | 'medium' | 'tall' | 'extra-tall' | 'viewport') | null;
+                      imageWidth?: ('equal' | '40-60' | '50-50' | '60-40') | null;
+                      contentWidth?: ('medium' | 'wide' | 'extra-wide' | 'full') | null;
+                      sectionPadding?: ('none' | 'compact' | 'comfortable' | 'spacious') | null;
+                      columnGap?: ('small' | 'medium' | 'large') | null;
+                      imageCorners?: ('none' | 'small' | 'medium' | 'large') | null;
+                      imageShadow?: boolean | null;
                       eyebrow?: string | null;
                       heading: string;
                       description: string;
@@ -896,6 +906,22 @@ export interface Page {
                       id?: string | null;
                       blockName?: string | null;
                       blockType: 'heading';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading?: string | null;
+                      description?: string | null;
+                      /**
+                       * Leave empty to show products from all categories.
+                       */
+                      category?: (number | null) | ProductCategory;
+                      limit: number;
+                      columns?: ('2' | '3' | '4') | null;
+                      showPrices?: boolean | null;
+                      showCategoryLabels?: boolean | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'product-catalogue';
                     }
                 )[]
               | null;
@@ -1180,6 +1206,13 @@ export interface Page {
                             blockType: 'impact-initiatives';
                           }
                         | {
+                            imageHeight?: ('auto' | 'compact' | 'medium' | 'tall' | 'extra-tall' | 'viewport') | null;
+                            imageWidth?: ('equal' | '40-60' | '50-50' | '60-40') | null;
+                            contentWidth?: ('medium' | 'wide' | 'extra-wide' | 'full') | null;
+                            sectionPadding?: ('none' | 'compact' | 'comfortable' | 'spacious') | null;
+                            columnGap?: ('small' | 'medium' | 'large') | null;
+                            imageCorners?: ('none' | 'small' | 'medium' | 'large') | null;
+                            imageShadow?: boolean | null;
                             eyebrow?: string | null;
                             heading: string;
                             description: string;
@@ -1245,6 +1278,22 @@ export interface Page {
                             id?: string | null;
                             blockName?: string | null;
                             blockType: 'heading';
+                          }
+                        | {
+                            eyebrow?: string | null;
+                            heading?: string | null;
+                            description?: string | null;
+                            /**
+                             * Leave empty to show products from all categories.
+                             */
+                            category?: (number | null) | ProductCategory;
+                            limit: number;
+                            columns?: ('2' | '3' | '4') | null;
+                            showPrices?: boolean | null;
+                            showCategoryLabels?: boolean | null;
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'product-catalogue';
                           }
                       )[]
                     | null;
@@ -1519,6 +1568,13 @@ export interface Page {
                       blockType: 'impact-initiatives';
                     }
                   | {
+                      imageHeight?: ('auto' | 'compact' | 'medium' | 'tall' | 'extra-tall' | 'viewport') | null;
+                      imageWidth?: ('equal' | '40-60' | '50-50' | '60-40') | null;
+                      contentWidth?: ('medium' | 'wide' | 'extra-wide' | 'full') | null;
+                      sectionPadding?: ('none' | 'compact' | 'comfortable' | 'spacious') | null;
+                      columnGap?: ('small' | 'medium' | 'large') | null;
+                      imageCorners?: ('none' | 'small' | 'medium' | 'large') | null;
+                      imageShadow?: boolean | null;
                       eyebrow?: string | null;
                       heading: string;
                       description: string;
@@ -1583,6 +1639,22 @@ export interface Page {
                       id?: string | null;
                       blockName?: string | null;
                       blockType: 'heading';
+                    }
+                  | {
+                      eyebrow?: string | null;
+                      heading?: string | null;
+                      description?: string | null;
+                      /**
+                       * Leave empty to show products from all categories.
+                       */
+                      category?: (number | null) | ProductCategory;
+                      limit: number;
+                      columns?: ('2' | '3' | '4') | null;
+                      showPrices?: boolean | null;
+                      showCategoryLabels?: boolean | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'product-catalogue';
                     }
                 )[]
               | null;
@@ -1843,6 +1915,13 @@ export interface Page {
                       blockType: 'impact-initiatives';
                     }
                   | {
+                      imageHeight?: ('auto' | 'compact' | 'medium' | 'tall' | 'extra-tall' | 'viewport') | null;
+                      imageWidth?: ('equal' | '40-60' | '50-50' | '60-40') | null;
+                      contentWidth?: ('medium' | 'wide' | 'extra-wide' | 'full') | null;
+                      sectionPadding?: ('none' | 'compact' | 'comfortable' | 'spacious') | null;
+                      columnGap?: ('small' | 'medium' | 'large') | null;
+                      imageCorners?: ('none' | 'small' | 'medium' | 'large') | null;
+                      imageShadow?: boolean | null;
                       eyebrow?: string | null;
                       heading: string;
                       description: string;
@@ -1908,6 +1987,22 @@ export interface Page {
                       blockName?: string | null;
                       blockType: 'heading';
                     }
+                  | {
+                      eyebrow?: string | null;
+                      heading?: string | null;
+                      description?: string | null;
+                      /**
+                       * Leave empty to show products from all categories.
+                       */
+                      category?: (number | null) | ProductCategory;
+                      limit: number;
+                      columns?: ('2' | '3' | '4') | null;
+                      showPrices?: boolean | null;
+                      showCategoryLabels?: boolean | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'product-catalogue';
+                    }
                 )[]
               | null;
             id?: string | null;
@@ -1915,6 +2010,13 @@ export interface Page {
             blockType: 'responsive-split';
           }
         | {
+            imageHeight?: ('auto' | 'compact' | 'medium' | 'tall' | 'extra-tall' | 'viewport') | null;
+            imageWidth?: ('equal' | '40-60' | '50-50' | '60-40') | null;
+            contentWidth?: ('medium' | 'wide' | 'extra-wide' | 'full') | null;
+            sectionPadding?: ('none' | 'compact' | 'comfortable' | 'spacious') | null;
+            columnGap?: ('small' | 'medium' | 'large') | null;
+            imageCorners?: ('none' | 'small' | 'medium' | 'large') | null;
+            imageShadow?: boolean | null;
             eyebrow?: string | null;
             heading: string;
             description: string;
@@ -1979,6 +2081,22 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'heading';
+          }
+        | {
+            eyebrow?: string | null;
+            heading?: string | null;
+            description?: string | null;
+            /**
+             * Leave empty to show products from all categories.
+             */
+            category?: (number | null) | ProductCategory;
+            limit: number;
+            columns?: ('2' | '3' | '4') | null;
+            showPrices?: boolean | null;
+            showCategoryLabels?: boolean | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'product-catalogue';
           }
       )[]
     | null;
@@ -2180,6 +2298,9 @@ export interface ProductsSelect<T extends boolean = true> {
   images?: T;
   featured?: T;
   status?: T;
+  inStockDelivery?: T;
+  madeToOrderDelivery?: T;
+  returnsPolicy?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -2788,6 +2909,13 @@ export interface PagesSelect<T extends boolean = true> {
                     'image-text'?:
                       | T
                       | {
+                          imageHeight?: T;
+                          imageWidth?: T;
+                          contentWidth?: T;
+                          sectionPadding?: T;
+                          columnGap?: T;
+                          imageCorners?: T;
+                          imageShadow?: T;
                           eyebrow?: T;
                           heading?: T;
                           description?: T;
@@ -2851,6 +2979,20 @@ export interface PagesSelect<T extends boolean = true> {
                           color?: T;
                           maxWidth?: T;
                           bottomSpacing?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'product-catalogue'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          category?: T;
+                          limit?: T;
+                          columns?: T;
+                          showPrices?: T;
+                          showCategoryLabels?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -3116,6 +3258,13 @@ export interface PagesSelect<T extends boolean = true> {
                           'image-text'?:
                             | T
                             | {
+                                imageHeight?: T;
+                                imageWidth?: T;
+                                contentWidth?: T;
+                                sectionPadding?: T;
+                                columnGap?: T;
+                                imageCorners?: T;
+                                imageShadow?: T;
                                 eyebrow?: T;
                                 heading?: T;
                                 description?: T;
@@ -3179,6 +3328,20 @@ export interface PagesSelect<T extends boolean = true> {
                                 color?: T;
                                 maxWidth?: T;
                                 bottomSpacing?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                          'product-catalogue'?:
+                            | T
+                            | {
+                                eyebrow?: T;
+                                heading?: T;
+                                description?: T;
+                                category?: T;
+                                limit?: T;
+                                columns?: T;
+                                showPrices?: T;
+                                showCategoryLabels?: T;
                                 id?: T;
                                 blockName?: T;
                               };
@@ -3436,6 +3599,13 @@ export interface PagesSelect<T extends boolean = true> {
                     'image-text'?:
                       | T
                       | {
+                          imageHeight?: T;
+                          imageWidth?: T;
+                          contentWidth?: T;
+                          sectionPadding?: T;
+                          columnGap?: T;
+                          imageCorners?: T;
+                          imageShadow?: T;
                           eyebrow?: T;
                           heading?: T;
                           description?: T;
@@ -3499,6 +3669,20 @@ export interface PagesSelect<T extends boolean = true> {
                           color?: T;
                           maxWidth?: T;
                           bottomSpacing?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    'product-catalogue'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          category?: T;
+                          limit?: T;
+                          columns?: T;
+                          showPrices?: T;
+                          showCategoryLabels?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -3742,6 +3926,13 @@ export interface PagesSelect<T extends boolean = true> {
                     'image-text'?:
                       | T
                       | {
+                          imageHeight?: T;
+                          imageWidth?: T;
+                          contentWidth?: T;
+                          sectionPadding?: T;
+                          columnGap?: T;
+                          imageCorners?: T;
+                          imageShadow?: T;
                           eyebrow?: T;
                           heading?: T;
                           description?: T;
@@ -3808,6 +3999,20 @@ export interface PagesSelect<T extends boolean = true> {
                           id?: T;
                           blockName?: T;
                         };
+                    'product-catalogue'?:
+                      | T
+                      | {
+                          eyebrow?: T;
+                          heading?: T;
+                          description?: T;
+                          category?: T;
+                          limit?: T;
+                          columns?: T;
+                          showPrices?: T;
+                          showCategoryLabels?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
               id?: T;
               blockName?: T;
@@ -3815,6 +4020,13 @@ export interface PagesSelect<T extends boolean = true> {
         'image-text'?:
           | T
           | {
+              imageHeight?: T;
+              imageWidth?: T;
+              contentWidth?: T;
+              sectionPadding?: T;
+              columnGap?: T;
+              imageCorners?: T;
+              imageShadow?: T;
               eyebrow?: T;
               heading?: T;
               description?: T;
@@ -3878,6 +4090,20 @@ export interface PagesSelect<T extends boolean = true> {
               color?: T;
               maxWidth?: T;
               bottomSpacing?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'product-catalogue'?:
+          | T
+          | {
+              eyebrow?: T;
+              heading?: T;
+              description?: T;
+              category?: T;
+              limit?: T;
+              columns?: T;
+              showPrices?: T;
+              showCategoryLabels?: T;
               id?: T;
               blockName?: T;
             };

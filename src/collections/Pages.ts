@@ -12,6 +12,15 @@ import { CallToAction } from '@/blocks/CallToAction/config'
 import { ImpactPillars } from '@/blocks/ImpactPillars/config'
 import { ImpactParallax } from '@/blocks/ImpactParallax/config'
 import { ImpactInitiativesBlock } from '@/blocks/ImpactInitiatives/config'
+import { TextDisclosure } from '@/blocks/TextDisclosure/config'
+import { Container } from '@/blocks/Container/config'
+import { ResponsiveGrid } from '@/blocks/ResponsiveGrid/config'
+import { ResponsiveSplit } from '@/blocks/ResponsiveSplit/config'
+import { ImageText } from '@/blocks/ImageText/config'
+import { SingleImage } from '@/blocks/SingleImage/config'
+import { EmphasizedText } from '@/blocks/EmphasizedText/config'
+import { Heading } from '@/blocks/Heading/config'
+import { ProductCatalogue } from '@/blocks/ProductCatalogue/config'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -69,6 +78,15 @@ export const Pages: CollectionConfig = {
         ImpactPillars,
         ImpactParallax,
         ImpactInitiativesBlock,
+        TextDisclosure,
+        Container,
+        ResponsiveGrid,
+        ResponsiveSplit,
+        ImageText,
+        SingleImage,
+        EmphasizedText,
+        Heading,
+        ProductCatalogue,
       ],
     },
 

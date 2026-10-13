@@ -1,17 +1,16 @@
-
 'use client'
 
 import { useState } from 'react'
 import Link from 'next/link'
 
 const navigation = [
-  { label: 'Jewelry', href: '/jewelry' },
+  { label: 'Eco Design', href: '/ecodesign' },
   { label: 'Café', href: '/cafe' },
   { label: 'Impact', href: '/impact' },
   { label: 'Art & Culture', href: '/art' },
   { label: 'Wellness', href: '/wellness' },
   { label: 'Journal', href: '/journal' },
-  ]
+]
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -31,10 +30,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop navigation */}
-        <nav
-          aria-label="Main navigation"
-          className="hidden items-center gap-6 lg:flex"
-        >
+        <nav aria-label="Main navigation" className="hidden items-center gap-6 lg:flex">
           {navigation.map((item) => (
             <Link
               key={item.href}
@@ -47,7 +43,7 @@ export default function Header() {
         </nav>
 
         {/* Desktop actions */}
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <Link
             href="/admin"
             className="rounded-full border border-tribearth-green-deep/30 px-4 py-2.5 text-sm text-tribearth-green-deep transition-colors hover:border-tribearth-green-deep hover:bg-tribearth-green-deep/5"
@@ -67,7 +63,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setMenuOpen((open) => !open)}
-          className="flex h-11 w-11 items-center justify-center rounded-full text-tribearth-green-deep transition-colors hover:bg-tribearth-green-deep/10 md:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-full text-tribearth-green-deep transition-colors hover:bg-tribearth-green-deep/10 lg:hidden"
           aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={menuOpen}
           aria-controls="mobile-navigation"
@@ -114,7 +110,7 @@ export default function Header() {
         <nav
           id="mobile-navigation"
           aria-label="Mobile navigation"
-          className="absolute left-0 top-full w-full border-b border-tribearth-border bg-tribearth-cream px-6 pb-7 pt-4 shadow-lg md:hidden"
+          className="absolute left-0 top-full w-full border-b border-tribearth-border bg-tribearth-cream px-6 pb-7 pt-4 shadow-lg lg:hidden"
         >
           <div className="mx-auto flex max-w-7xl flex-col">
             {navigation.map((item) => (
@@ -149,4 +145,3 @@ export default function Header() {
     </header>
   )
 }
-
