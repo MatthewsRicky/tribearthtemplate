@@ -82,3 +82,15 @@ a {
   }
 }
 
+
+.image-text-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 1024px) {
+  .image-text-grid {
+    grid-template-columns:
+      minmax(0, var(--image-column))
+      minmax(0, var(--text-column));
+  }
+}
